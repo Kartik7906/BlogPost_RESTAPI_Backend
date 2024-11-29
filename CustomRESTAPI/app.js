@@ -10,7 +10,7 @@ app.use("/api/user", router);
 // connecting mongodb by using mongooose:
 mongoose
   .connect(
-    "mongodb+srv://admin:yjkiOIbT0WYFO3Rs@cluster0.6pb0o.mongodb.net/Blog?retryWrites=true&w=majority&appName=Cluster0"
+    
   )
   .then(() => app.listen(3000))
   .then(() => {

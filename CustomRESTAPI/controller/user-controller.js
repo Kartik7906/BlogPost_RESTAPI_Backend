@@ -1,5 +1,6 @@
-import User from '../model/User';
+import User from '../model/User.js';
 
+// this is user function here:
 export const getAllUser = async(req, res, next) =>{
     let users;
 
@@ -16,3 +17,5 @@ export const getAllUser = async(req, res, next) =>{
 
     return res.status(200).json({users});
 }
+
+// lets make here signup function here:
