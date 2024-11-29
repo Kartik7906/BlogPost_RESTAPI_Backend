@@ -1,0 +1,27 @@
+# Node.js modules
+/node_modules/
+
+# dotenv configuration files
+.env
+
+# Log files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# npm and yarn lock files (optional, but sometimes useful)
+package-lock.json
+yarn.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# Vscode settings (optional)
+.vscode/
+
+# Additional files/folders to ignore for specific environments or projects can be added here.
