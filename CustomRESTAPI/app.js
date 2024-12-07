@@ -1,21 +1,30 @@
 import express from "express";
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 import router from "./routes/user-routes.js";
+
+dotenv.config();
 
 const app = express();
 
-// fetching router:
+// Middleware
+app.use(express.json());
 app.use("/api/user", router);
 
-// connecting mongodb by using mongooose:
-mongoose
-  .connect(
-    
-  )
-  .then(() => app.listen(3000))
-  .then(() => {
-    console.log("Connected To DataBase and Listening to localHost 3000:");
-  })
-  .catch((err) => console.log(err));
+// Validate environment variables
+if (!process.env.MONGODB_URI) {
+  console.error("Error: MONGODB_URI is not defined in .env");
+  process.exit(1);
+}
 
-// yjkiOIbT0WYFO3Rs mongodb passward:
+// Connect to MongoDB and start server
+mongoose
+  .connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log("Connected to Database");
+    app.listen(3000, () => console.log("Server is running on localhost:3000"));
+  })
+  .catch((err) => {
+    console.error("Database connection failed:", err);
+    process.exit(1);
+  });
